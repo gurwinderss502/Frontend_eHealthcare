@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f7;
+    }
+
+    .container-fluid {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgb(33, 223, 252), rgb(32, 172, 194), rgb(2, 77, 88));
+    }
+
+    .content-wrapper {
+      width: 90%;
+      max-width: 1200px;
+      display: flex;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .image-section {
+      background: #fff;
+      padding: 50px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-section img {
+      max-width: 600px;
+      height: 400px;
+    }
+
+    .form-section {
+      background-color: #f7f7f7;
+      padding: 50px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-box {
+      width: 100%;
+      max-width: 400px;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-box h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.65rem; /* Adjusted margin bottom */
+    }
+
+    .form-group-row .form-group {
+      width: 48%;
+    }
+
+    .form-group-full {
+      width: 100%;
+    }
+
+    .btn-primary {
+      background-color: #6c63ff;
+      border-color: #6c63ff;
+    }
+
+    .btn-primary:hover {
+      background-color: #5550d6;
+      border-color: #5550d6;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .form-check {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-check a {
+      color: #6c63ff;
+    }
+
+    .form-check a:hover {
+      color: #5550d6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="content-wrapper">
+      <!-- Image Section -->
+      <div class="image-section">
+        <img src="assets\tima.jpg" alt="Illustration">
+      </div>
+
+      <!-- Create Account Section -->
+      <div class="form-section">
+        <div class="form-box">
+          <h2>Sign Up</h2>
+          <form id="createAccountForm">
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input [(ngModel)]="user_fname" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="first-name" placeholder="Enter your first name" required>
+                <div class="invalid-feedback">Please enter your first name.</div>
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input [(ngModel)]="user_lname" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="last-name" placeholder="Enter your last name" required>
+                <div class="invalid-feedback">Please enter your last name.</div>
+              </div>
+            </div>
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email" class="form-control" id="email" placeholder="Enter email" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input  [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" type="tel" class="form-control" id="phone" placeholder="Enter phone number" required>
+                <div class="invalid-feedback">Please enter a valid phone number.</div>
+              </div>
+            </div>
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select [(ngModel)]="gender" [ngModelOptions]="{standalone: true}" class="form-control" id="gender" required>
+                  <option value="">Select your gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="invalid-feedback">Please select your gender.</div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" class="form-control" id="password" placeholder="Enter password" required>
+                <div class="invalid-feedback">Please enter a password.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" (click)="save()">Create Account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        var forms = document.getElementsByTagName('form');
+        Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+</body>
+
+</html>

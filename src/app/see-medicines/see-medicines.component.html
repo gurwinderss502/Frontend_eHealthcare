@@ -1,0 +1,64 @@
+
+<nav style="margin:auto" class="navbar navbar-expand-lg bg-dark">
+        
+    <a class="navbar-brand" href="#" style="margin: 0px;">
+      <img src="assets\hospital.svg" width="50" height="30" alt="">
+  </a>
+      <a class="navbar-brand" href="#" style="color: white;"> <b> CareSync </b></a>
+    
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          <li class="nav-item">
+            <a style="color: white;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/create-medicine">Add Medicines</a>
+          </li>
+          
+        </ul>
+  
+        <div class="mx-2">
+          
+          <button style="margin: 5px;"class="btn btn-info" data-toggle="modal" data-target="#loginModal"><a style="color:white;" href="javascript:void(0);" routerLink="/home">Logout</a></button>
+          
+      </div>
+        
+      </div>
+    
+    </nav>
+    
+    <div class="container">
+    <hr>
+      <h2 style="text-align: center;margin-top: 10PX;"> Medicine List</h2>
+      
+    <hr>
+    <br>
+      <a style="color: rgb(86, 86, 86); font-size: 25px;">Medicines And Quantity</a>
+      <hr>
+  <div class="tableFixHead">
+    <br>
+  
+  
+    <table class="table table-striped">
+      <thead class="table-header">
+        <tr>
+          <th>Id</th>
+          <th>Drug Name</th>
+          <th>Quantity</th>
+         
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medicine of medicines ">
+          <td>{{medicine.id}}</td>
+          <td>{{medicine.drugName}}</td>
+          <td>{{medicine.stock}}</td>
+          
+          
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    

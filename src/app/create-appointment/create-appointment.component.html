@@ -1,0 +1,41 @@
+<nav style="margin:auto" class="navbar navbar-expand-lg bg-dark">
+
+    <a class="navbar-brand" href="#" style="margin: 0px;">
+        <img src="assets\hospital.svg" width="50" height="30" alt="">
+    </a>
+        <a class="navbar-brand" href="#" style="color: white;"> <b> CareSync </b></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <hr>
+    <h2 style="text-align: center; margin-top: 20px;">Add New Appointment</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" [(ngModel)]="appointment.name" required />
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" class="form-control" id="age" name="age" placeholder="Enter Age" [(ngModel)]="appointment.age" required />
+        </div>
+        <div class="form-group">
+            <label>Symptoms</label>
+            <input type="text" class="form-control" id="symptoms" name="symptoms" placeholder="Enter Symptoms" [(ngModel)]="appointment.symptoms" required />
+        </div>
+        <div class="form-group">
+            <label>Contact Number</label>
+            <input type="text" class="form-control" id="number" name="number" placeholder="Enter Contact Number" [(ngModel)]="appointment.number" required />
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
